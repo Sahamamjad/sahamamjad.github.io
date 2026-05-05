@@ -1,0 +1,6 @@
+node_modules
+dist
+.DS_Store
+*.log
+# Source of truth is src/App.jsx (copy of the old single-file component)
+portfolio (1).jsx
