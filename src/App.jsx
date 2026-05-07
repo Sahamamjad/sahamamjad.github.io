@@ -6,13 +6,22 @@ const NAV_LINKS = ["About", "Skills", "Projects", "Experience", "Education", "Co
 
 const SKILLS = {
   "Languages": ["Python", "Java", "SQL", "JavaScript", "HTML", "CSS"],
-  "Frameworks & Libraries": ["FastAPI", "TensorFlow", "Scikit-learn", "React.js", "Tailwind CSS"],
+  "Frameworks & Libraries": ["FastAPI", "TensorFlow", "Scikit-learn", "React.js", "Tailwind CSS", "Streamlit", "boto3"],
   "Tools & Platforms": ["Git", "GitHub", "VS Code", "Nginx", "PM2", "Linux VPS"],
   "Databases": ["MySQL", "PostgreSQL"],
-  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Testing & Automation", "Windows", "Linux"],
+  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "Testing & Automation", "Windows", "Linux"],
 };
 
 const PROJECTS = [
+  {
+    title: "Cloud Security Misconfiguration Scanner (AWS)",
+    description:
+      "A defensive, read-only tool that audits common AWS misconfigurations across S3, IAM, EC2 security groups, RDS, and CloudTrail — then scores risk and exports JSON, CSV, and HTML reports. Includes a Streamlit dashboard with demo mode (no credentials) and live scan mode using least-privilege boto3 APIs only.",
+    tech: ["Python", "Streamlit", "boto3", "AWS", "Docker"],
+    github: "https://github.com/sahamamjad/cloud-misconfiguration-scanner",
+    demo: null,
+    highlight: false,
+  },
   {
     title: "Phishing URL Detection System",
     description:
@@ -71,6 +80,7 @@ const EXPERIENCE = [
       "Built an AI Resume Analyser API using Python and FastAPI, deployed on Linux VPS with Nginx and PM2.",
       "Created a malware classification system using ML models and Cuckoo Sandbox achieving high detection accuracy.",
       "Shipped a phishing URL detection lab (React, Flask, scikit-learn) with explainable features and REST inference.",
+      "Delivered a read-only AWS misconfiguration scanner (Streamlit, boto3) with CIS-oriented findings and exportable reports.",
     ],
   },
   {
