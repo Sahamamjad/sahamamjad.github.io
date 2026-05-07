@@ -14,6 +14,15 @@ const SKILLS = {
 
 const PROJECTS = [
   {
+    title: "Phishing URL Detection System",
+    description:
+      "A cybersecurity and machine learning web app that classifies URLs as legitimate or phishing using hand-crafted lexical features and a trained scikit-learn ensemble. Includes a React dashboard, Flask REST API with explainable per-feature scores, and model artefacts for reproducible training — useful for triage workflows and security education.",
+    tech: ["Python", "Flask", "scikit-learn", "React.js", "Tailwind CSS", "Joblib"],
+    github: "https://github.com/sahamamjad/phishing-url-detection",
+    demo: null,
+    highlight: false,
+  },
+  {
     title: "AI-Powered Autism Detection System",
     description:
       "A deep-learning system for detecting Autism Spectrum Disorder (ASD) from facial images. Compared CNN, VGG16, VGG19, EfficientNetB3 and EfficientNetB4, achieving 97.44% accuracy with the best model. Includes a full-stack web app with PDF report generation.",
@@ -37,15 +46,6 @@ const PROJECTS = [
       "Traditional antiviruses and signature-based solutions cannot keep pace with the proliferation of modern malware — Panda Labs reported 18 million new samples in Q3 2017 alone (~200,000/day). This project addresses that gap with an AI-driven malware analysis and classification system that goes beyond reactive, heuristic defences. It leverages machine learning to detect and categorise malware at scale, tackling a challenge that makes manual security-analyst review practically impossible.",
     tech: ["Python", "Machine Learning", "Scikit-learn", "Static Analysis", "Dynamic Analysis", "Cybersecurity"],
     github: "https://github.com/Sahamamjad/malware-classification",
-    demo: null,
-    highlight: false,
-  },
-  {
-    title: "Phishing URL Detection System",
-    description:
-      "A cybersecurity and machine learning web app that classifies URLs as legitimate or phishing using hand-crafted lexical features and a trained scikit-learn ensemble. Includes a React dashboard, Flask REST API with explainable per-feature scores, and model artefacts for reproducible training — useful for triage workflows and security education.",
-    tech: ["Python", "Flask", "scikit-learn", "React.js", "Tailwind CSS", "Joblib"],
-    github: "https://github.com/sahamamjad/phishing-url-detection",
     demo: null,
     highlight: false,
   },
