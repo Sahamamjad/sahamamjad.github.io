@@ -41,6 +41,15 @@ const PROJECTS = [
     highlight: false,
   },
   {
+    title: "Phishing URL Detection System",
+    description:
+      "A cybersecurity and machine learning web app that classifies URLs as legitimate or phishing using hand-crafted lexical features and a trained scikit-learn ensemble. Includes a React dashboard, Flask REST API with explainable per-feature scores, and model artefacts for reproducible training — useful for triage workflows and security education.",
+    tech: ["Python", "Flask", "scikit-learn", "React.js", "Tailwind CSS", "Joblib"],
+    github: "https://github.com/sahamamjad/phishing-url-detection",
+    demo: null,
+    highlight: false,
+  },
+  {
     title: "Tudo App",
     description:
       "A clean, responsive task management application built with JavaScript. Features task creation, completion tracking, filtering, and local persistence — helping users stay organised with a minimal interface.",
@@ -61,6 +70,7 @@ const EXPERIENCE = [
       "Developed an AI Autism Detection System achieving 97.44% accuracy using EfficientNet and TensorFlow.",
       "Built an AI Resume Analyser API using Python and FastAPI, deployed on Linux VPS with Nginx and PM2.",
       "Created a malware classification system using ML models and Cuckoo Sandbox achieving high detection accuracy.",
+      "Shipped a phishing URL detection lab (React, Flask, scikit-learn) with explainable features and REST inference.",
     ],
   },
   {
