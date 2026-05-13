@@ -16,7 +16,7 @@ const PROJECTS = [
   {
     title: "Cloud Security Misconfiguration Scanner (AWS)",
     description:
-      "A defensive, read-only tool that audits common AWS misconfigurations across S3, IAM, EC2 security groups, RDS, and CloudTrail — then scores risk and exports JSON, CSV, and HTML reports. Includes a Streamlit dashboard with demo mode (no credentials) and live scan mode using least-privilege boto3 APIs only.",
+      "A defensive, read-only tool that audits common AWS misconfigurations across S3, IAM, EC2 security groups, RDS, and CloudTrail — then scores risk and exports JSON, CSV, and HTML reports. Includes a Streamlit dashboard with an offline sample scan (no credentials required) plus optional live scans using least-privilege boto3 APIs only.",
     tech: ["Python", "Streamlit", "boto3", "AWS", "Docker"],
     github: "https://github.com/sahamamjad/cloud-misconfiguration-scanner",
     highlight: false,
