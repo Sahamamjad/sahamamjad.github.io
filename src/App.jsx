@@ -19,7 +19,6 @@ const PROJECTS = [
       "A defensive, read-only tool that audits common AWS misconfigurations across S3, IAM, EC2 security groups, RDS, and CloudTrail — then scores risk and exports JSON, CSV, and HTML reports. Includes a Streamlit dashboard with demo mode (no credentials) and live scan mode using least-privilege boto3 APIs only.",
     tech: ["Python", "Streamlit", "boto3", "AWS", "Docker"],
     github: "https://github.com/sahamamjad/cloud-misconfiguration-scanner",
-    demo: null,
     highlight: false,
   },
   {
@@ -28,7 +27,6 @@ const PROJECTS = [
       "A cybersecurity and machine learning web app that classifies URLs as legitimate or phishing using hand-crafted lexical features and a trained scikit-learn ensemble. Includes a React dashboard, Flask REST API with explainable per-feature scores, and model artefacts for reproducible training — useful for triage workflows and security education.",
     tech: ["Python", "Flask", "scikit-learn", "React.js", "Tailwind CSS", "Joblib"],
     github: "https://github.com/sahamamjad/phishing-url-detection",
-    demo: null,
     highlight: false,
   },
   {
@@ -37,7 +35,6 @@ const PROJECTS = [
       "A deep-learning system for detecting Autism Spectrum Disorder (ASD) from facial images. Compared CNN, VGG16, VGG19, EfficientNetB3 and EfficientNetB4, achieving 97.44% accuracy with the best model. Includes a full-stack web app with PDF report generation.",
     tech: ["Python", "TensorFlow", "Keras", "EfficientNet", "React.js", "Tailwind CSS", "OpenCV", "Scikit-learn"],
     github: "https://github.com/Sahamamjad/AI-Powered-Autism-Detection-System-Using-Facial-Analysis",
-    demo: null,
     highlight: true,
   },
   {
@@ -46,7 +43,6 @@ const PROJECTS = [
       "A resume analysis API built with Python and FastAPI. Extracts text from PDF and DOCX resumes, detects skills and scores candidates automatically. Deployed on a Linux VPS using Nginx and PM2 for production-grade reliability.",
     tech: ["Python", "FastAPI", "PDF/DOCX Parsing", "Nginx", "PM2", "Linux VPS"],
     github: "https://github.com/Sahamamjad/ai-resume-analyzer",
-    demo: null,
     highlight: false,
   },
   {
@@ -55,7 +51,6 @@ const PROJECTS = [
       "Traditional antiviruses and signature-based solutions cannot keep pace with the proliferation of modern malware — Panda Labs reported 18 million new samples in Q3 2017 alone (~200,000/day). This project addresses that gap with an AI-driven malware analysis and classification system that goes beyond reactive, heuristic defences. It leverages machine learning to detect and categorise malware at scale, tackling a challenge that makes manual security-analyst review practically impossible.",
     tech: ["Python", "Machine Learning", "Scikit-learn", "Static Analysis", "Dynamic Analysis", "Cybersecurity"],
     github: "https://github.com/Sahamamjad/malware-classification",
-    demo: null,
     highlight: false,
   },
   {
@@ -64,7 +59,6 @@ const PROJECTS = [
       "A clean, responsive task management application built with JavaScript. Features task creation, completion tracking, filtering, and local persistence — helping users stay organised with a minimal interface.",
     tech: ["JavaScript", "HTML", "CSS", "LocalStorage API"],
     github: "https://github.com/Sahamamjad/Tudo_app",
-    demo: null,
     highlight: false,
   },
 ];
@@ -375,13 +369,6 @@ function Projects() {
                   <a href={p.github} target="_blank" rel="noopener noreferrer" className="project-link">
                     <GithubIcon /> GitHub
                   </a>
-                  {p.demo ? (
-                    <a href={p.demo} target="_blank" rel="noopener noreferrer" className="project-link project-link--demo">
-                      ↗ Live Demo
-                    </a>
-                  ) : (
-                    <span className="project-link project-link--placeholder">[ Add Live Demo URL ]</span>
-                  )}
                 </div>
               </div>
             </FadeIn>
@@ -869,8 +856,6 @@ const CSS = `
     transition: opacity 0.2s;
   }
   .project-link:hover { opacity: 0.75; }
-  .project-link--demo { color: var(--gold); }
-  .project-link--placeholder { color: var(--muted); font-style: italic; font-size: 0.8rem; cursor: default; }
 
   /* ── Timeline ────────────────────────────── */
   .timeline { position: relative; padding-left: 32px; margin-bottom: 24px; }
