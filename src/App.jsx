@@ -189,8 +189,10 @@ function Navbar({ active }) {
   }, []);
 
   return (
-    <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
-      <a href="#hero" className="navbar__logo">SA</a>
+    <nav className={`navbar ${scrolled ? "navbar--scrolled" : ""}`} aria-label="Primary">
+      <a href="#hero" className="navbar__logo" title="Saham Amjad — home">
+        SA
+      </a>
 
       {/* Desktop links */}
       <ul className="navbar__links">
@@ -199,6 +201,7 @@ function Navbar({ active }) {
             <a
               href={`#${l.toLowerCase()}`}
               className={`navbar__link ${active === l.toLowerCase() ? "navbar__link--active" : ""}`}
+              aria-current={active === l.toLowerCase() ? "true" : undefined}
             >
               {l}
             </a>
@@ -207,14 +210,21 @@ function Navbar({ active }) {
       </ul>
 
       {/* Mobile burger */}
-      <button className="navbar__burger" onClick={() => setOpen(!open)} aria-label="Toggle menu">
+      <button
+        type="button"
+        className="navbar__burger"
+        onClick={() => setOpen(!open)}
+        aria-label="Toggle menu"
+        aria-expanded={open}
+        aria-controls="nav-mobile"
+      >
         <span className={`burger-line ${open ? "burger-line--1-open" : ""}`} />
         <span className={`burger-line ${open ? "burger-line--2-open" : ""}`} />
         <span className={`burger-line ${open ? "burger-line--3-open" : ""}`} />
       </button>
 
       {open && (
-        <div className="navbar__mobile">
+        <div className="navbar__mobile" id="nav-mobile">
           {NAV_LINKS.map((l) => (
             <a
               key={l}
@@ -258,16 +268,19 @@ function Hero() {
           <a href="#contact" className="btn btn--outline">
             Contact Me
           </a>
-          <a href="#" className="btn btn--ghost">
-            ↓ Resume
+          <a
+            href="mailto:saham.amjad333@hotmail.com?subject=CV%20%2F%20resume%20request"
+            className="btn btn--ghost"
+          >
+            Request CV →
           </a>
         </div>
       </div>
 
-      <div className="hero__scroll-hint">
+      <a href="#about" className="hero__scroll-hint" aria-label="Scroll to About">
         <span>scroll</span>
-        <div className="hero__scroll-bar" />
-      </div>
+        <div className="hero__scroll-bar" aria-hidden />
+      </a>
     </section>
   );
 }
@@ -349,11 +362,6 @@ function Skills() {
             </FadeIn>
           ))}
         </div>
-        <FadeIn delay={0.3}>
-          <p className="skills__note">
-            ✏️ <strong>Tip:</strong> Update the skills list in the <code>SKILLS</code> constant at the top of the file to reflect your exact tech stack.
-          </p>
-        </FadeIn>
       </div>
     </section>
   );
@@ -455,7 +463,8 @@ function Contact() {
     e.preventDefault();
     setStatus("sending");
     try {
-      const res = await fetch("https://formspree.io/f/xbdwoerd", {        method: "POST",
+      const res = await fetch("https://formspree.io/f/xbdwoerd", {
+        method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify(form),
       });
@@ -535,10 +544,16 @@ function Contact() {
                 />
               </div>
               <button type="submit" className="btn btn--primary btn--full" disabled={status === "sending"}>
-                {status === "sending" ? "Sending..." : status === "sent" ? "✓ Message Sent!" : status === "error" ? "❌ Try Again" : "Send Message →"}
+                {status === "sending" ? "Sending…" : status === "sent" ? "Message sent" : status === "error" ? "Try again" : "Send message"}
               </button>
-              {status === "sent" && <p style={{ color: "#4f9eff", fontSize: "0.85rem", textAlign: "center" }}>Thanks! I'll get back to you soon.</p>}
-              {status === "error" && <p style={{ color: "#ff6b6b", fontSize: "0.85rem", textAlign: "center" }}>Something went wrong. Email me directly at saham.amjad333@hotmail.com</p>}
+              {status === "sent" && (
+                <p className="form-feedback form-feedback--success">Thanks — I will get back to you soon.</p>
+              )}
+              {status === "error" && (
+                <p className="form-feedback form-feedback--error">
+                  Something went wrong. Email me at saham.amjad333@hotmail.com
+                </p>
+              )}
             </form>
           </FadeIn>
         </div>
@@ -550,8 +565,26 @@ function Contact() {
 function Footer() {
   return (
     <footer className="footer">
-      <p>Designed & built by <strong>Saham Amjad</strong></p>
-      <p className="footer__sub">© {new Date().getFullYear()} — All rights reserved</p>
+      <div className="footer__links">
+        <a href="https://github.com/sahamamjad" target="_blank" rel="noopener noreferrer" className="footer__link">
+          <GithubIcon /> GitHub
+        </a>
+        <a
+          href="https://www.linkedin.com/in/saham-amjad-787a92126"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="footer__link"
+        >
+          <LinkedinIcon /> LinkedIn
+        </a>
+        <a href="mailto:saham.amjad333@hotmail.com" className="footer__link">
+          <EmailIcon /> Email
+        </a>
+      </div>
+      <p className="footer__credit">
+        Built by <strong>Saham Amjad</strong>
+      </p>
+      <p className="footer__sub">© {new Date().getFullYear()}</p>
     </footer>
   );
 }
@@ -603,8 +636,11 @@ export default function App() {
   return (
     <>
       <style>{CSS}</style>
+      <a href="#about" className="skip-link">
+        Skip to content
+      </a>
       <Navbar active={activeSection} />
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />
@@ -645,7 +681,7 @@ const CSS = `
     --shadow: 0 4px 30px rgba(0,0,0,0.4);
   }
 
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; color-scheme: dark; }
 
   body {
     background: var(--bg);
@@ -654,6 +690,44 @@ const CSS = `
     font-size: 1rem;
     line-height: 1.7;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(79, 158, 255, 0.35);
+    color: var(--text);
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  .btn:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    z-index: 200;
+    padding: 10px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+    transition: transform 0.2s ease;
+  }
+  .skip-link:focus {
+    transform: translate(-50%, 12px);
+    outline: none;
+  }
+  .skip-link:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 
   a { color: inherit; text-decoration: none; }
@@ -675,8 +749,8 @@ const CSS = `
     display: inline-block;
   }
   .section-line {
-    width: 48px; height: 3px;
-    background: var(--accent);
+    width: 56px; height: 3px;
+    background: linear-gradient(90deg, var(--accent), rgba(79,158,255,0.25));
     margin-top: 10px;
     border-radius: 2px;
   }
@@ -698,9 +772,12 @@ const CSS = `
     font-size: 1.4rem;
     color: var(--accent);
     letter-spacing: 0.05em;
+    border-radius: 8px;
+    transition: color 0.2s, opacity 0.2s;
   }
+  .navbar__logo:hover { color: #8abfff; }
   .navbar__links { list-style: none; display: flex; gap: 36px; }
-  .navbar__link { font-size: 0.88rem; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; }
+  .navbar__link { font-size: 0.88rem; font-weight: 500; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; transition: color 0.2s; border-radius: 6px; }
   .navbar__link:hover, .navbar__link--active { color: var(--text); }
   .navbar__link--active { color: var(--accent); }
 
@@ -730,6 +807,7 @@ const CSS = `
   }
   .btn--primary { background: var(--accent); color: #fff; }
   .btn--primary:hover { background: #6babff; box-shadow: 0 0 20px var(--accent-glow); }
+  .btn--primary:disabled { opacity: 0.65; cursor: not-allowed; box-shadow: none; }
   .btn--outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
   .btn--outline:hover { border-color: var(--accent); color: var(--accent); }
   .btn--ghost { background: transparent; color: var(--muted); border: none; font-size: 0.85rem; }
@@ -774,14 +852,19 @@ const CSS = `
   }
   .hero__bio { color: var(--muted); max-width: 520px; font-size: 1.05rem; margin-bottom: 40px; }
 
-  .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 
   .hero__scroll-hint {
     position: absolute; bottom: 40px; left: 40px;
     display: flex; flex-direction: column; align-items: center; gap: 8px;
     font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.1em;
     text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 4px;
+    transition: color 0.2s;
   }
+  .hero__scroll-hint:hover { color: var(--text); }
   .hero__scroll-bar {
     width: 1.5px; height: 50px;
     background: linear-gradient(to bottom, var(--accent), transparent);
@@ -816,7 +899,7 @@ const CSS = `
   .stat-label { font-size: 0.75rem; color: var(--muted); text-align: center; margin-top: 2px; }
 
   /* ── Skills ──────────────────────────────── */
-  .skills__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 24px; }
+  .skills__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
   .skill-card {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--radius-lg); padding: 24px;
@@ -832,12 +915,6 @@ const CSS = `
     transition: background 0.2s, border-color 0.2s;
   }
   .skill-card:hover .tag { border-color: rgba(79,158,255,0.25); }
-
-  .skills__note {
-    background: rgba(245,200,66,0.06); border: 1px solid rgba(245,200,66,0.2);
-    border-radius: var(--radius); padding: 14px 18px;
-    font-size: 0.85rem; color: var(--muted);
-  }
 
   /* ── Projects ────────────────────────────── */
   .projects__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
@@ -920,21 +997,59 @@ const CSS = `
     background: var(--surface); border: 1.5px solid var(--border);
     color: var(--text); border-radius: 8px;
     padding: 11px 14px; font-family: var(--font-body); font-size: 0.95rem;
-    outline: none; transition: border-color 0.2s;
+    outline: none; transition: border-color 0.2s, box-shadow 0.2s;
     -webkit-appearance: none;
   }
-  .form-input:focus { border-color: var(--accent); }
+  .form-input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-dim);
+  }
   .form-input::placeholder { color: var(--muted); opacity: 0.6; }
   .form-textarea { resize: vertical; min-height: 130px; }
 
+  .form-feedback {
+    font-size: 0.85rem;
+    text-align: center;
+    margin: 4px 0 0;
+    line-height: 1.5;
+  }
+  .form-feedback--success { color: #7eb8ff; }
+  .form-feedback--error { color: #ff8a8a; }
+
   /* ── Footer ──────────────────────────────── */
   .footer {
-    padding: 40px; text-align: center;
+    padding: 48px 24px 40px;
+    text-align: center;
     border-top: 1px solid var(--border);
-    color: var(--muted); font-size: 0.85rem;
+    color: var(--muted);
+    font-size: 0.85rem;
   }
-  .footer__sub { margin-top: 4px; font-size: 0.78rem; opacity: 0.6; }
+  .footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 28px;
+    margin-bottom: 20px;
+  }
+  .footer__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--muted);
+    transition: color 0.2s;
+    border-radius: 6px;
+  }
+  .footer__link:hover { color: var(--accent); }
+  .footer__credit { color: var(--text); margin-bottom: 6px; }
+  .footer__sub { margin-top: 0; font-size: 0.78rem; opacity: 0.55; }
   footer strong { color: var(--text); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .hero__scroll-bar { animation: none !important; opacity: 0.5; }
+  }
 
   /* ── Responsive ──────────────────────────── */
   @media (max-width: 900px) {
