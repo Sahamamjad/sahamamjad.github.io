@@ -75,7 +75,7 @@ const EXPERIENCE = [
   {
     role: "Software Developer — Freelance / Personal Projects",
     company: "Self-Employed (GitHub)",
-    period: "2023 – Present",
+    period: "2025 – Present",
     bullets: [
       "Designed and built AI-powered full-stack applications from concept to deployment.",
       "Developed an AI Autism Detection System achieving 97.44% accuracy using EfficientNet and TensorFlow.",
