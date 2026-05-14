@@ -6,13 +6,21 @@ const NAV_LINKS = ["About", "Skills", "Projects", "Experience", "Education", "Co
 
 const SKILLS = {
   "Languages": ["Python", "Java", "SQL", "JavaScript", "HTML", "CSS"],
-  "Frameworks & Libraries": ["FastAPI", "TensorFlow", "Scikit-learn", "React.js", "Tailwind CSS", "Streamlit", "boto3"],
+  "Frameworks & Libraries": ["FastAPI", "TensorFlow", "Scikit-learn", "React.js", "TypeScript", "Tailwind CSS", "Streamlit", "boto3"],
   "Tools & Platforms": ["Git", "GitHub", "VS Code", "Nginx", "PM2", "Linux VPS"],
-  "Databases": ["MySQL", "PostgreSQL"],
-  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "Testing & Automation", "Windows", "Linux"],
+  "Databases": ["MySQL", "PostgreSQL", "SQLite"],
+  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "DevSecOps", "Testing & Automation", "Windows", "Linux"],
 };
 
 const PROJECTS = [
+  {
+    title: "SecureDeploy",
+    description:
+      "A full-stack DevSecOps security dashboard that scans public GitHub repositories for exposed secrets, Python SAST (Bandit), dependency risks, and Dockerfile misconfigurations — using static analysis only in an isolated clone. Surfaces severity-based findings, security scores, scan history, and JSON/PDF exports through a React + TypeScript UI backed by FastAPI and SQLite.",
+    tech: ["Python", "FastAPI", "React", "TypeScript", "SQLite", "Docker"],
+    github: "https://github.com/Sahamamjad/securedeploy",
+    highlight: false,
+  },
   {
     title: "Cloud Security Misconfiguration Scanner (AWS)",
     description:
@@ -75,6 +83,7 @@ const EXPERIENCE = [
       "Created a malware classification system using ML models and Cuckoo Sandbox achieving high detection accuracy.",
       "Shipped a phishing URL detection lab (React, Flask, scikit-learn) with explainable features and REST inference.",
       "Delivered a read-only AWS misconfiguration scanner (Streamlit, boto3) with CIS-oriented findings and exportable reports.",
+      "Built SecureDeploy — a DevSecOps repo scanner (FastAPI, React, SQLite) with secrets/SAST/Dockerfile checks and exportable reports.",
     ],
   },
   {
