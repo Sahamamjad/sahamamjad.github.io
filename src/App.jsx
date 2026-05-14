@@ -268,10 +268,7 @@ function Hero() {
           <a href="#contact" className="btn btn--outline">
             Contact Me
           </a>
-          <a
-            href="mailto:saham.amjad333@hotmail.com?subject=CV%20%2F%20resume%20request"
-            className="btn btn--ghost"
-          >
+          <a href="#contact" className="btn btn--ghost" title="Open the contact form to request my CV">
             Request CV →
           </a>
         </div>
