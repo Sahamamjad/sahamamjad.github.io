@@ -319,10 +319,6 @@ function About() {
               I'm actively seeking an IT Support or Software Engineer role in the UK where I can
               grow, contribute from day one, and keep pushing my skills forward.
             </p>
-            <p>
-              🌐 <strong>Languages:</strong> Urdu (native) · English (professional) &nbsp;|&nbsp;
-              🏅 <strong>Certifications:</strong> Level 2 Door Supervisor (SIA) · Emergency First Aid at Work
-            </p>
             <div className="about__stats">
               {[
                 { value: "MSc", label: "Distinction — Huddersfield" },
