@@ -14,6 +14,14 @@ const SKILLS = {
 
 const PROJECTS = [
   {
+    title: "GuardPR AI",
+    description:
+      "A production-style DevSecOps GitHub App that automatically reviews pull requests for security issues — running Semgrep, Gitleaks, and optional container/IaC scanners, then AI-triaging findings with OWASP mapping and remediation guidance. Posts PR comments, enforces policy gates, and tracks scans in a React + TypeScript dashboard backed by FastAPI, Celery, and PostgreSQL.",
+    tech: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "Docker", "Celery"],
+    github: "https://github.com/sahamamjad/guardpr-ai",
+    highlight: false,
+  },
+  {
     title: "SecureDeploy",
     description:
       "A full-stack DevSecOps security dashboard that scans public GitHub repositories for exposed secrets, Python SAST (Bandit), dependency risks, and Dockerfile misconfigurations — using static analysis only in an isolated clone. Surfaces severity-based findings, security scores, scan history, and JSON/PDF exports through a React + TypeScript UI backed by FastAPI and SQLite.",
@@ -84,6 +92,7 @@ const EXPERIENCE = [
       "Shipped a phishing URL detection lab (React, Flask, scikit-learn) with explainable features and REST inference.",
       "Delivered a read-only AWS misconfiguration scanner (Streamlit, boto3) with CIS-oriented findings and exportable reports.",
       "Built SecureDeploy — a DevSecOps repo scanner (FastAPI, React, SQLite) with secrets/SAST/Dockerfile checks and exportable reports.",
+      "Developed GuardPR AI — a GitHub App for automated PR security review with AI triage, policy gates, and a full scan dashboard (FastAPI, Celery, PostgreSQL).",
     ],
   },
   {
