@@ -100,38 +100,51 @@ const CERTIFICATIONS = [
 
 const EXPERIENCE = [
   {
-    role: "Software Developer — Freelance / Personal Projects",
-    company: "Self-Employed (GitHub)",
-    period: "2025 – Present",
+    role: "Founder & Software Engineer",
+    company: "Black Pulse LTD",
+    period: "January 2025 – Present | United Kingdom · Remote",
     bullets: [
-      "Designed and built AI-powered full-stack applications from concept to deployment.",
-      "Developed an AI Autism Detection System achieving 97.44% accuracy using EfficientNet and TensorFlow.",
-      "Built an AI Resume Analyser API using Python and FastAPI, deployed on Linux VPS with Nginx and PM2.",
-      "Created a malware classification system using ML models and Cuckoo Sandbox achieving high detection accuracy.",
-      "Shipped a phishing URL detection lab (React, Flask, scikit-learn) with explainable features and REST inference.",
-      "Delivered a read-only AWS misconfiguration scanner (Streamlit, boto3) with CIS-oriented findings and exportable reports.",
-      "Built SecureDeploy — a DevSecOps repo scanner (FastAPI, React, SQLite) with secrets/SAST/Dockerfile checks and exportable reports.",
-      "Developed GuardPR AI — a GitHub App for automated PR security review with AI triage, policy gates, and a full scan dashboard (FastAPI, Celery, PostgreSQL).",
+      "Lead product development for a registered software company focused on machine learning, cybersecurity, and AI-powered applications.",
+      "Design and ship full-stack systems end to end — from API and data layers through to React dashboards and production deployment.",
+      "Deliver DevSecOps tooling including automated repository scanning, AWS misconfiguration audits, and GitHub-integrated PR security review.",
+      "Build portfolio-grade products that combine practical engineering with clear documentation, reproducible workflows, and measurable outcomes.",
     ],
   },
   {
-    role: "Head of IT Support",
+    role: "Lead Software Engineer",
     company: "Estate Asset Pvt Ltd",
-    period: "March 2023 – August 2024 | Islamabad, Pakistan",
+    period: "March 2023 – August 2024 | Islamabad, Pakistan · On-site",
     bullets: [
-      "Designed, developed, and maintained software solutions across cross-functional teams.",
-      "Created, tested, and deployed high-quality software applications ensuring performance, scalability, and security.",
-      "Collaborated with business stakeholders to align technical solutions with client requirements.",
+      "Directed software and digital platform improvements for real-estate operations across listing, internal tooling, and business workflows.",
+      "Owned delivery of property-related systems and integrations that supported sales teams and day-to-day operational processes.",
+      "Partnered with stakeholders to translate business requirements into reliable, maintainable software with a focus on performance and usability.",
     ],
   },
   {
-    role: "Head of IT Support",
+    role: "Software Systems Engineer",
     company: "Wirasat Real Estate",
-    period: "January 2019 – March 2023 | Islamabad, Pakistan",
+    period: "June 2022 – March 2023 | Islamabad, Pakistan · On-site",
     bullets: [
-      "Designed and maintained internal software tools using Python and SQL.",
-      "Improved operational efficiency through automation and system optimisation.",
-      "Provided technical support and maintained IT infrastructure for the organisation.",
+      "Enhanced internal platforms, databases, and reporting tools supporting property operations and CRM-related workflows.",
+      "Drove website updates, process automation, and system improvements that reduced manual overhead for business teams.",
+    ],
+  },
+  {
+    role: "Software Engineer",
+    company: "Wirasat Real Estate",
+    period: "March 2020 – June 2022 | Islamabad, Pakistan · On-site",
+    bullets: [
+      "Developed and maintained internal software features, web updates, and data-handling components used across the organisation.",
+      "Supported production systems and iterative releases while collaborating with colleagues on testing, fixes, and technical documentation.",
+    ],
+  },
+  {
+    role: "Associate Software Engineer",
+    company: "Wirasat Real Estate",
+    period: "March 2019 – March 2020 | Islamabad, Pakistan · On-site",
+    bullets: [
+      "Contributed to application development, website maintenance, and database updates under senior engineering guidance.",
+      "Gained hands-on experience in debugging, quality checks, and structured delivery within a growing software team.",
     ],
   },
 ];
@@ -283,7 +296,7 @@ function Hero() {
         <p className="hero__bio">
           MSc Computing (Distinction) graduate with hands-on experience in IT support, software development,
           and system troubleshooting. Passionate about building impactful software and AI solutions.
-          Based in Huddersfield, UK — actively seeking IT Support or Software Engineer roles.
+          Based in Huddersfield, UK — actively seeking Software Engineer roles.
         </p>
 
         <div className="hero__cta">
@@ -344,7 +357,7 @@ function About() {
               tools, and full-stack development — all built with a focus on real-world impact.
             </p>
             <p>
-              I'm actively seeking an IT Support or Software Engineer role in the UK where I can
+              I'm actively seeking a Software Engineer role in the UK where I can
               grow, contribute from day one, and keep pushing my skills forward.
             </p>
             <div className="about__stats">
