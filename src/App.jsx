@@ -105,7 +105,7 @@ const EXPERIENCE = [
     location: "United Kingdom · Remote",
     period: "Jan 2025 – Present",
     description:
-      "Building software, AI/ML, automation, and cybersecurity-related projects through my registered UK company. Working on practical portfolio projects, technical problem-solving, web applications, cloud-based systems, and machine learning experiments.",
+      "Building software, AI/ML, automation, cloud, and cybersecurity-related projects through my registered UK company, with a focus on practical development, portfolio building, web applications, machine learning experiments, and technical problem-solving.",
     skills: ["Python", "JavaScript", "React", "Machine Learning", "AI/LLM", "AWS", "Docker", "APIs", "GitHub"],
   },
   {
@@ -684,15 +684,29 @@ export default function App() {
   const [activeSection, setActiveSection] = useState("hero");
 
   useEffect(() => {
-    const sections = document.querySelectorAll("section[id]");
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) setActiveSection(e.target.id); });
-      },
-      { threshold: 0.4 }
-    );
-    sections.forEach((s) => obs.observe(s));
-    return () => obs.disconnect();
+    const sections = Array.from(document.querySelectorAll("section[id]"));
+    const NAV_OFFSET = 120;
+
+    const updateActive = () => {
+      const scrollPos = window.scrollY + NAV_OFFSET;
+      let current = sections[0]?.id ?? "hero";
+
+      for (const section of sections) {
+        if (section.offsetTop <= scrollPos) {
+          current = section.id;
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    updateActive();
+    window.addEventListener("scroll", updateActive, { passive: true });
+    window.addEventListener("resize", updateActive);
+    return () => {
+      window.removeEventListener("scroll", updateActive);
+      window.removeEventListener("resize", updateActive);
+    };
   }, []);
 
   return (
