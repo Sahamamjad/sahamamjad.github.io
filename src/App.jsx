@@ -102,50 +102,29 @@ const EXPERIENCE = [
   {
     role: "Founder & Software Engineer",
     company: "Black Pulse LTD",
-    period: "January 2025 – Present | United Kingdom · Remote",
-    bullets: [
-      "Lead product development for a registered software company focused on machine learning, cybersecurity, and AI-powered applications.",
-      "Design and ship full-stack systems end to end — from API and data layers through to React dashboards and production deployment.",
-      "Deliver DevSecOps tooling including automated repository scanning, AWS misconfiguration audits, and GitHub-integrated PR security review.",
-      "Build portfolio-grade products that combine practical engineering with clear documentation, reproducible workflows, and measurable outcomes.",
-    ],
+    location: "United Kingdom · Remote",
+    period: "Jan 2025 – Present",
+    description:
+      "Building software, AI/ML, automation, and cybersecurity-related projects through my registered UK company. Working on practical portfolio projects, technical problem-solving, web applications, cloud-based systems, and machine learning experiments.",
+    skills: ["Python", "JavaScript", "React", "Machine Learning", "AI/LLM", "AWS", "Docker", "APIs", "GitHub"],
   },
   {
     role: "Lead Software Engineer",
-    company: "Estate Asset Pvt Ltd",
-    period: "March 2023 – August 2024 | Islamabad, Pakistan · On-site",
-    bullets: [
-      "Directed software and digital platform improvements for real-estate operations across listing, internal tooling, and business workflows.",
-      "Owned delivery of property-related systems and integrations that supported sales teams and day-to-day operational processes.",
-      "Partnered with stakeholders to translate business requirements into reliable, maintainable software with a focus on performance and usability.",
-    ],
-  },
-  {
-    role: "Software Systems Engineer",
-    company: "Wirasat Real Estate",
-    period: "June 2022 – March 2023 | Islamabad, Pakistan · On-site",
-    bullets: [
-      "Enhanced internal platforms, databases, and reporting tools supporting property operations and CRM-related workflows.",
-      "Drove website updates, process automation, and system improvements that reduced manual overhead for business teams.",
-    ],
+    company: "Estate Asset",
+    location: "On-site",
+    period: "Mar 2023 – Aug 2024",
+    description:
+      "Led software and digital platform improvements for real estate operations, including property listing systems, internal tools, databases, reporting workflows, and business process automation.",
+    skills: ["Web Development", "Databases", "CRM Systems", "Business Automation", "Team Leadership"],
   },
   {
     role: "Software Engineer",
-    company: "Wirasat Real Estate",
-    period: "March 2020 – June 2022 | Islamabad, Pakistan · On-site",
-    bullets: [
-      "Developed and maintained internal software features, web updates, and data-handling components used across the organisation.",
-      "Supported production systems and iterative releases while collaborating with colleagues on testing, fixes, and technical documentation.",
-    ],
-  },
-  {
-    role: "Associate Software Engineer",
-    company: "Wirasat Real Estate",
-    period: "March 2019 – March 2020 | Islamabad, Pakistan · On-site",
-    bullets: [
-      "Contributed to application development, website maintenance, and database updates under senior engineering guidance.",
-      "Gained hands-on experience in debugging, quality checks, and structured delivery within a growing software team.",
-    ],
+    company: "Wirasat",
+    location: "On-site",
+    period: "Mar 2019 – Mar 2023",
+    description:
+      "Progressed from Associate Software Engineer to Software Systems Engineer while working on internal business applications, websites, databases, reporting tools, CRM-related processes, technical support, testing, debugging, and documentation.",
+    skills: ["Software Engineering", "Web Systems", "Database Management", "Testing", "Debugging", "Documentation"],
   },
 ];
 
@@ -434,28 +413,44 @@ function Experience() {
   return (
     <section id="experience" className="section section--alt">
       <div className="container">
-        <FadeIn><SectionTitle>Experience</SectionTitle></FadeIn>
+        <FadeIn><SectionTitle>Selected Experience</SectionTitle></FadeIn>
         <div className="timeline">
           {EXPERIENCE.map((exp, i) => (
-            <FadeIn key={i} delay={i * 0.12}>
+            <FadeIn key={`${exp.company}-${exp.period}`} delay={i * 0.12}>
               <div className="timeline__item">
                 <div className="timeline__dot" />
-                <div className="timeline__card">
+                <article className="timeline__card">
                   <div className="timeline__header">
                     <div>
                       <h3 className="timeline__role">{exp.role}</h3>
                       <p className="timeline__company">{exp.company}</p>
+                      <p className="timeline__location">{exp.location}</p>
                     </div>
                     <span className="timeline__period">{exp.period}</span>
                   </div>
-                  <ul className="timeline__bullets">
-                    {exp.bullets.map((b, j) => <li key={j}>{b}</li>)}
-                  </ul>
-                </div>
+                  <p className="timeline__desc">{exp.description}</p>
+                  <div className="timeline__tags">
+                    {exp.skills.map((s) => (
+                      <Tag key={s} label={s} />
+                    ))}
+                  </div>
+                </article>
               </div>
             </FadeIn>
           ))}
         </div>
+        <FadeIn delay={0.36}>
+          <div className="experience__footer">
+            <a
+              href="https://www.linkedin.com/in/saham-amjad-787a92126"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn--outline experience__linkedin"
+            >
+              <LinkedinIcon /> View full experience on LinkedIn
+            </a>
+          </div>
+        </FadeIn>
       </div>
     </section>
   );
@@ -1030,10 +1025,32 @@ const CSS = `
   .timeline__header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
   .timeline__role { font-size: 1.05rem; font-weight: 600; color: var(--text); }
   .timeline__company { font-size: 0.87rem; color: var(--accent); margin-top: 2px; }
+  .timeline__location {
+    font-size: 0.82rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
   .timeline__period { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); white-space: nowrap; background: var(--surface-2); padding: 4px 10px; border-radius: 6px; border: 1px solid var(--border); }
-  .timeline__bullets { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 6px; }
-  .timeline__bullets li { font-size: 0.9rem; color: var(--muted); padding-left: 16px; position: relative; }
-  .timeline__bullets li::before { content: '▸'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; top: 4px; }
+  .timeline__desc {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .timeline__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .experience__footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+    padding-top: 8px;
+  }
+  .experience__linkedin {
+    font-size: 0.88rem;
+  }
 
   /* ── Education ───────────────────────────── */
   .edu__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
