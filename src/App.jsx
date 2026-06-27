@@ -2,14 +2,14 @@ import { useState, useEffect, useRef } from "react";
 
 // ── Data ────────────────────────────────────────────────────────────────────
 
-const NAV_LINKS = ["About", "Skills", "Projects", "Experience", "Education", "Contact"];
+const NAV_LINKS = ["About", "Skills", "Projects", "Experience", "Education", "Certifications", "Contact"];
 
 const SKILLS = {
   "Languages": ["Python", "Java", "SQL", "JavaScript", "HTML", "CSS"],
   "Frameworks & Libraries": ["FastAPI", "TensorFlow", "Scikit-learn", "React.js", "TypeScript", "Tailwind CSS", "Streamlit", "boto3"],
   "Tools & Platforms": ["Git", "GitHub", "VS Code", "Nginx", "PM2", "Linux VPS"],
   "Databases": ["MySQL", "PostgreSQL", "SQLite"],
-  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "DevSecOps", "Testing & Automation", "Windows", "Linux"],
+  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "DevSecOps", "LLMs", "Prompt Engineering", "Testing & Automation", "Windows", "Linux"],
 };
 
 const PROJECTS = [
@@ -76,6 +76,25 @@ const PROJECTS = [
     tech: ["JavaScript", "HTML", "CSS", "LocalStorage API"],
     github: "https://github.com/Sahamamjad/Tudo_app",
     highlight: false,
+  },
+];
+
+const CERTIFICATIONS = [
+  {
+    title: "Claude with the Anthropic API",
+    issuer: "Anthropic",
+    period: "June 2026",
+    summary:
+      "Building production-ready applications with the Anthropic API — model selection, structured prompting, tool use, and safe integration patterns for Claude.",
+    topics: ["Anthropic API", "Claude", "AI Integration", "Prompt Design"],
+  },
+  {
+    title: "AI Fluency: AI Capabilities & Limitations",
+    issuer: "Anthropic",
+    period: "June 2026",
+    summary:
+      "Foundational AI literacy covering what modern models can and cannot do, responsible use, hallucination risks, and effective human–AI collaboration.",
+    topics: ["AI Literacy", "Model Limitations", "Responsible AI", "LLMs"],
   },
 ];
 
@@ -455,6 +474,39 @@ function Education() {
   );
 }
 
+function Certifications() {
+  return (
+    <section id="certifications" className="section section--alt">
+      <div className="container">
+        <FadeIn><SectionTitle>Certifications</SectionTitle></FadeIn>
+        <p className="cert__intro">
+          Professional credentials in AI engineering and responsible use of large language models.
+        </p>
+        <div className="cert__grid">
+          {CERTIFICATIONS.map((c, i) => (
+            <FadeIn key={c.title} delay={i * 0.1}>
+              <article className="cert-card">
+                <div className="cert-card__header">
+                  <span className="cert-card__badge">Certificate of completion</span>
+                  <span className="cert-card__period">{c.period}</span>
+                </div>
+                <h3 className="cert-card__title">{c.title}</h3>
+                <p className="cert-card__issuer">{c.issuer}</p>
+                <p className="cert-card__summary">{c.summary}</p>
+                <div className="cert-card__tags">
+                  {c.topics.map((t) => (
+                    <Tag key={t} label={t} />
+                  ))}
+                </div>
+              </article>
+            </FadeIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [status, setStatus] = useState("idle"); // idle | sending | sent | error
@@ -649,6 +701,7 @@ export default function App() {
         <Projects />
         <Experience />
         <Education />
+        <Certifications />
         <Contact />
       </main>
       <Footer />
@@ -984,6 +1037,89 @@ const CSS = `
   .edu-card__institution { font-size: 0.9rem; color: var(--accent); margin-bottom: 4px; }
   .edu-card__period { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); margin-bottom: 8px; }
   .edu-card__notes { font-size: 0.87rem; color: var(--muted); }
+
+  /* ── Certifications ──────────────────────── */
+  .cert__intro {
+    max-width: 560px;
+    margin: -28px 0 36px;
+    font-size: 1.02rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .cert__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: 100%;
+    transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  }
+  .cert-card:hover {
+    border-color: rgba(79,158,255,0.35);
+    box-shadow: 0 0 28px var(--accent-dim);
+    transform: translateY(-2px);
+  }
+  .cert-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cert-card__badge {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(245,200,66,0.08);
+    border: 1px solid rgba(245,200,66,0.22);
+    padding: 4px 10px;
+    border-radius: 99px;
+  }
+  .cert-card__period {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+    background: var(--surface-2);
+    padding: 4px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+  }
+  .cert-card__title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    color: var(--text);
+    line-height: 1.35;
+  }
+  .cert-card__issuer {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: -4px;
+  }
+  .cert-card__summary {
+    font-size: 0.9rem;
+    color: var(--muted);
+    flex: 1;
+    line-height: 1.65;
+  }
+  .cert-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding-top: 4px;
+  }
 
   /* ── Contact ─────────────────────────────── */
   .contact__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
