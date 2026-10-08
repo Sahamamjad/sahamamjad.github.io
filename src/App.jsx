@@ -116,8 +116,8 @@ const EXPERIENCE = [
     location: "United Kingdom · Remote",
     period: "Jan 2025 – Present",
     description:
-      "Building software, AI/ML, automation, cloud, and cybersecurity-related projects, with a focus on practical development, web applications, machine learning experiments, and technical problem-solving.",
-    skills: ["Python", "JavaScript", "React", "Machine Learning", "AI/LLM", "AWS", "Docker", "APIs", "GitHub"],
+      "Building DevSecOps and application security tooling that embeds security into the software delivery lifecycle. Developed GuardPR AI, an automated pull-request security reviewer that runs SAST (Semgrep), secrets scanning (Gitleaks), dependency scanning (Trivy) and Policy as Code (Checkov) with SARIF reporting and security gates that block merges on new Critical or High findings. Also built SecureDeploy (Bandit, pip-audit, Gitleaks and Dockerfile checks) and an AWS cloud misconfiguration scanner, with CI/CD on GitHub Actions.",
+    skills: ["Secure CI/CD", "GitHub Actions", "SAST", "Dependency Scanning", "Policy as Code", "Security Gates", "Python", "Docker", "AWS"],
   },
   {
     role: "Lead Software Engineer",
@@ -125,8 +125,8 @@ const EXPERIENCE = [
     location: "On-site",
     period: "Mar 2023 – Aug 2024",
     description:
-      "Led software and digital platform improvements for real estate operations, including property listing systems, internal tools, databases, reporting workflows, and business process automation.",
-    skills: ["Web Development", "Databases", "CRM Systems", "Business Automation", "Team Leadership"],
+      "Led software and digital platform improvements for real estate operations, owning the build, testing and deployment of property listing systems, internal tools, databases and reporting workflows. Focused on reliable, secure software delivery, with attention to performance, scalability and security, and automated business processes to reduce manual work.",
+    skills: ["Software Delivery", "Deployment", "Testing", "Databases", "Business Automation", "Team Leadership"],
   },
   {
     role: "Software Engineer",
@@ -134,8 +134,8 @@ const EXPERIENCE = [
     location: "On-site",
     period: "Mar 2019 – Mar 2023",
     description:
-      "Progressed from Associate Software Engineer to Software Systems Engineer while working on internal business applications, websites, databases, reporting tools, CRM-related processes, technical support, testing, debugging, and documentation.",
-    skills: ["Software Engineering", "Web Systems", "Database Management", "Testing", "Debugging", "Documentation"],
+      "Progressed from Associate Software Engineer to Software Systems Engineer, developing and maintaining internal business applications, websites, databases and reporting tools. Supported production systems and iterative releases, with hands-on work in testing, debugging, quality checks and technical documentation.",
+    skills: ["Software Engineering", "Production Support", "Release Management", "Testing", "Debugging", "Documentation"],
   },
 ];
 
