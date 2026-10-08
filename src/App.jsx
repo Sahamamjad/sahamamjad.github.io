@@ -80,14 +80,6 @@ const PROJECTS = [
     github: "https://github.com/Sahamamjad/malware-classification",
     highlight: false,
   },
-  {
-    title: "Tudo App",
-    description:
-      "A clean, responsive task management application built with JavaScript. Features task creation, completion tracking, filtering, and local persistence — helping users stay organised with a minimal interface.",
-    tech: ["JavaScript", "HTML", "CSS", "LocalStorage API"],
-    github: "https://github.com/Sahamamjad/Tudo_app",
-    highlight: false,
-  },
 ];
 
 const CERTIFICATIONS = [
