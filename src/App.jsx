@@ -286,7 +286,7 @@ function Hero() {
         <p className="hero__bio">
           MSc Computing (Distinction) graduate with hands-on experience in IT support, software development,
           and system troubleshooting. Passionate about building impactful software and AI solutions.
-          Based in Huddersfield, UK — actively seeking Software Engineer roles.
+          Based in Huddersfield, UK, and actively seeking Software Engineer roles.
         </p>
 
         <div className="hero__cta">
@@ -349,7 +349,7 @@ function About() {
             <p>
               Through projects like GuardPR AI, an automated pull-request security reviewer, I work
               hands-on with application security code review, OWASP-mapped vulnerability triage, and
-              secure CI/CD with GitHub Actions — catching issues before they reach production.
+              secure CI/CD with GitHub Actions, catching issues before they reach production.
             </p>
             <p>
               I'm looking for a DevOps or DevSecOps Engineer role in the UK where I can help teams
@@ -357,7 +357,7 @@ function About() {
             </p>
             <div className="about__stats">
               {[
-                { value: "MSc", label: "Distinction — Huddersfield" },
+                { value: "MSc", label: "Distinction, Huddersfield" },
                 { value: "5+", label: "Years Experience" },
                 { value: "CI/CD", label: "Secure Pipelines & AppSec" },
               ].map(({ value, label }) => (
