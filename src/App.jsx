@@ -5,9 +5,20 @@ import { useState, useEffect, useRef } from "react";
 const NAV_LINKS = ["About", "Skills", "Projects", "Experience", "Education", "Certifications", "Contact"];
 
 const SKILLS = {
+  "DevSecOps & AppSec": [
+    "Secure CI/CD (GitHub Actions)",
+    "SAST (Semgrep, Bandit)",
+    "Dependency Scanning (pip-audit, Trivy)",
+    "Secrets Scanning (Gitleaks)",
+    "Policy as Code (Checkov)",
+    "Pipeline Security Gates",
+    "Secure Code Review",
+    "SARIF Reporting",
+    "OWASP Top 10",
+  ],
   "Languages": ["Python", "Java", "SQL", "JavaScript", "HTML", "CSS"],
   "Frameworks & Libraries": ["FastAPI", "TensorFlow", "Scikit-learn", "React.js", "TypeScript", "Tailwind CSS", "Streamlit", "boto3"],
-  "Tools & Platforms": ["Git", "GitHub", "VS Code", "Nginx", "PM2", "Linux VPS"],
+  "Tools & Platforms": ["Git", "GitHub", "GitHub Actions", "Docker", "AWS", "VS Code", "Nginx", "PM2", "Linux VPS"],
   "Databases": ["MySQL", "PostgreSQL", "SQLite"],
   "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "DevSecOps", "LLMs", "Prompt Engineering", "Testing & Automation", "Windows", "Linux"],
 };
@@ -100,12 +111,12 @@ const CERTIFICATIONS = [
 
 const EXPERIENCE = [
   {
-    role: "Founder & Software Engineer",
+    role: "Software Engineer",
     company: "Black Pulse LTD",
     location: "United Kingdom · Remote",
     period: "Jan 2025 – Present",
     description:
-      "Building software, AI/ML, automation, cloud, and cybersecurity-related projects through my registered UK company, with a focus on practical development, portfolio building, web applications, machine learning experiments, and technical problem-solving.",
+      "Building software, AI/ML, automation, cloud, and cybersecurity-related projects, with a focus on practical development, web applications, machine learning experiments, and technical problem-solving.",
     skills: ["Python", "JavaScript", "React", "Machine Learning", "AI/LLM", "AWS", "Docker", "APIs", "GitHub"],
   },
   {
