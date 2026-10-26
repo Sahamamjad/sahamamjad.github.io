@@ -19,8 +19,9 @@ const SKILLS = {
   "Languages": ["Python", "Java", "SQL", "JavaScript", "HTML", "CSS"],
   "Frameworks & Libraries": ["FastAPI", "TensorFlow", "Scikit-learn", "React.js", "TypeScript", "Tailwind CSS", "Streamlit", "boto3"],
   "Tools & Platforms": ["Git", "GitHub", "GitHub Actions", "Docker", "AWS", "VS Code", "Nginx", "PM2", "Linux VPS"],
+  "Platform & Observability": ["Kubernetes", "Helm", "Terraform", "Argo CD", "Prometheus", "Grafana", "Docker Compose"],
   "Databases": ["MySQL", "PostgreSQL", "SQLite"],
-  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "DevSecOps", "LLMs", "Prompt Engineering", "Testing & Automation", "Windows", "Linux"],
+  "Concepts & Other": ["OOP", "Data Structures", "Machine Learning", "Cloud Security", "DevSecOps", "Observability", "GitOps", "LLMs", "Prompt Engineering", "Testing & Automation", "Windows", "Linux"],
 };
 
 const PROJECTS = [
