@@ -25,6 +25,14 @@ const SKILLS = {
 
 const PROJECTS = [
   {
+    title: "Self-Healing DevOps Platform",
+    description:
+      "A local-first platform for evidence-based incident analysis and safe, auditable remediation. A FastAPI service runs rule-based checks for 5xx spikes, latency, readiness failures, CrashLoopBackOff, OOMKilled, failed rollouts, and configuration drift, then stores incidents and a dry-run remediation audit in SQLite. Prometheus and Grafana cover metrics, with Docker Compose plus Kubernetes, Helm, Argo CD, and Terraform definitions. Remediation is simulated only and never changes a cluster.",
+    tech: ["Python", "FastAPI", "SQLite", "Prometheus", "Grafana", "Docker", "Kubernetes", "Terraform"],
+    github: "https://github.com/Sahamamjad/self-healing-devops-platform",
+    highlight: false,
+  },
+  {
     title: "GuardPR AI",
     description:
       "A production-style DevSecOps GitHub App that automatically reviews pull requests for security issues — running Semgrep, Gitleaks, and optional container/IaC scanners, then AI-triaging findings with OWASP mapping and remediation guidance. Posts PR comments, enforces policy gates, and tracks scans in a React + TypeScript dashboard backed by FastAPI, Celery, and PostgreSQL.",
